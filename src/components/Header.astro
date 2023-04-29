@@ -1,27 +1,12 @@
 ---
-import Icon from './Icon.astro';
-
-const links = [
-  {
-    text: 'Linkedin',
-    url: 'https://www.linkedin.com/in/suleymanbariseser/',
-  },
-  {
-    text: 'Github',
-    url: 'https://github.com/suleymanbariseser',
-  },
-  {
-    text: 'Medium',
-    url: 'https://medium.com/@suleymanbariseser',
-  },
-];
+import { Icon } from 'astro-icon';
 ---
 
 <header class='w-full py-4 border-b border-b-zinc-700 container mx-auto'>
   <div class='w-full flex flex-row justify-between'>
     <a href='mailto:suleymanbariseser@gmail.com'>
       <div class='flex flex-row items-center gap-x-3'>
-        <Icon name='mail' />
+        <Icon name='mdi:email-outline' width={24} />
         <span class='text-sm'>suleymanbariseser@gmail.com</span>
       </div>
     </a>

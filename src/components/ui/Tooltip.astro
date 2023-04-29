@@ -1,0 +1,14 @@
+---
+interface Props {
+  tooltip: string;
+}
+
+const { tooltip } = Astro.props as Props;
+---
+
+<div class='has-tooltip flex justify-center'>
+  <span class='tooltip rounded shadow-lg py-1 px-3 bg-zinc-900 -mt-10 text-sm'
+    >{tooltip}</span
+  >
+  <slot />
+</div>

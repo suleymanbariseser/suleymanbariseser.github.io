@@ -1,0 +1,120 @@
+---
+import { Icon } from 'astro-icon';
+import Tooltip from './ui/Tooltip.astro';
+
+const techs = [
+  {
+    icon: 'mdi:language-typescript',
+    name: 'Typescript',
+    class: 'hover:text-blue-700',
+    href: 'https://www.typescriptlang.org/',
+  },
+  {
+    icon: 'fa-brands:react',
+    name: 'React',
+    class: 'hover:text-sky-700',
+    href: 'https://react.dev/',
+  },
+  {
+    icon: 'cib:expo',
+    name: 'Expo',
+    class: 'hover:text-white',
+    href: 'https://docs.expo.dev/',
+  },
+  {
+    icon: 'simple-icons:nextdotjs',
+    name: 'Next',
+    class: 'hover:text-white',
+    href: 'https://nextjs.org/',
+  },
+  {
+    icon: 'simple-icons:gatsby',
+    name: 'Gatsby',
+    class: 'hover:text-dark',
+    href: 'https://www.gatsbyjs.com/',
+  },
+  {
+    icon: 'remix',
+    name: 'Remix',
+    class: 'hover:text-white',
+    href: 'https://remix.run/',
+  },
+  {
+    icon: 'simple-icons:nodedotjs',
+    name: 'Node',
+    class: 'hover:text-green-700',
+    href: 'https://nodejs.org/en',
+  },
+  {
+    icon: 'simple-icons:express',
+    name: 'Express',
+    class: 'hover:text-white',
+    href: 'https://expressjs.com/',
+  },
+  {
+    icon: 'simple-icons:jest',
+    name: 'Jest',
+    class: 'hover:text-fuchsia-950',
+    href: 'https://jestjs.io/',
+  },
+  {
+    icon: 'fontisto:mysql',
+    name: 'MySQL',
+    class: 'hover:text-orange-700',
+    href: 'https://www.mysql.com/',
+  },
+  {
+    icon: 'cib:mongodb',
+    name: 'MongoDB',
+    class: 'hover:text-green-700',
+    href: 'https://www.mongodb.com/',
+  },
+  {
+    icon: 'file-icons:prisma',
+    name: 'Prisma',
+    class: 'hover:text-white',
+    href: 'https://www.prisma.io/',
+  },
+  {
+    icon: 'mdi:graphql',
+    name: 'GraphQL',
+    class: 'hover:text-fuchsia-700',
+    href: 'https://graphql.org/',
+  },
+  {
+    icon: 'mdi:webpack',
+    name: 'Webpack',
+    class: 'hover:text-blue-700',
+    href: 'https://webpack.js.org/',
+  },
+];
+---
+
+<div
+  class='w-full overflow-hidden flex items-center justify-center bg-zinc-800 border-y border-y-zinc-700 py-8'
+>
+  <div class='w-[200%] h-20 relative'>
+    <div
+      class='w-[200%] flex items-center h-20 justify-around absolute left-0 animate gap-20'
+    >
+      {
+        techs.map((i) => {
+          return (
+            <div class='flex justify-center items-start w-[40rem] transition-all'>
+              <Tooltip tooltip={i.name}>
+                <a
+                  href={i.href}
+                  target='_blank'
+                  rel='noreferer'
+                  class={i.class}
+                >
+                  <Icon name={i.icon} height={60} />
+                </a>
+              </Tooltip>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</div>
