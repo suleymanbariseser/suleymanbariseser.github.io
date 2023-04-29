@@ -1,0 +1,54 @@
+---
+import Icon from './Icon.astro';
+
+const links = [
+  {
+    text: 'Linkedin',
+    url: 'https://www.linkedin.com/in/suleymanbariseser/',
+  },
+  {
+    text: 'Github',
+    url: 'https://github.com/suleymanbariseser',
+  },
+  {
+    text: 'Medium',
+    url: 'https://medium.com/@suleymanbariseser',
+  },
+];
+---
+
+<header class='w-full py-4 border-b border-b-zinc-700 container mx-auto'>
+  <div class='w-full flex flex-row justify-between'>
+    <a href='mailto:suleymanbariseser@gmail.com'>
+      <div class='flex flex-row items-center gap-x-3'>
+        <Icon name='mail' />
+        <span class='text-sm'>suleymanbariseser@gmail.com</span>
+      </div>
+    </a>
+    <div class='flex flex-row text-sm gap-x-3'>
+      <a
+        href='https://www.linkedin.com/in/suleymanbariseser/'
+        target='_blank'
+        rel='noreferer'
+      >
+        Linkedin
+      </a>
+      <span class=''>/</span>
+      <a
+        href='https://github.com/suleymanbariseser'
+        target='_blank'
+        rel='noreferer'
+      >
+        Github
+      </a>
+      <span class=''>/</span>
+      <a
+        href='https://medium.com/@suleymanbariseser'
+        target='_blank'
+        rel='noreferer'
+      >
+        Medium
+      </a>
+    </div>
+  </div>
+</header>

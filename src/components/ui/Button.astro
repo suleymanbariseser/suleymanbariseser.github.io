@@ -1,0 +1,18 @@
+---
+interface Props {
+  icon?: string;
+}
+
+import Icon from '../Icon.astro';
+
+const { icon } = Astro.props as Props;
+---
+
+<button
+  class='bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-sm hover:bg-zinc-800 hover:border-zinc-700 active:bg-transparent transition-all outline-none'
+>
+  <div class='flex flex-row gap-x-2 text-sm items-center justify-center'>
+    <p class='text-sm'><slot /></p>
+    {icon && <Icon name={icon} />}
+  </div>
+</button>
