@@ -1,0 +1,17 @@
+---
+import { Github } from '../utils/github';
+import Section from './Section.astro';
+import RepoCard from './ui/RepoCard.astro';
+
+const github = new Github();
+
+const repos = await github.getRepos();
+---
+
+<Section title='Public Projects'>
+  <div
+    class='w-full overflow-hidden gap-4 flex max-md:flex-col max-md:items-center flex-row justify-center'
+  >
+    {repos.map((repo) => <RepoCard repo={repo} />)}
+  </div>
+</Section>

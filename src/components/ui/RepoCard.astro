@@ -1,0 +1,20 @@
+---
+import type { Repo } from '../../utils/github';
+
+interface Props {
+  repo: Repo;
+}
+
+const { repo } = Astro.props;
+---
+
+<a href={repo.html_url} target='_blank' rel='noopener noreferrer'>
+  <div
+    class='w-[250px] h-[250px] bg-zinc-900 border border-zinc-800 rounded-sm p-6 flex flex-col justify-center gap-y-2 hover:bg-zinc-800 transition-all'
+  >
+    <h6 class='text-base text-zinc-100'>{repo.name}</h6>
+    <p class='text-xs overflow-ellipsis'>
+      {repo.description ?? 'No description'}
+    </p>
+  </div>
+</a>
