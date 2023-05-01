@@ -61,6 +61,11 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
+      - name: Create env file
+        env:
+          ENV_FILE: ${{ secrets.ENV_VARIABLES }}
+        run: 
+          echo $ENV_FILE | base64 --decode > .env
       - name: Build with Astro
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build
