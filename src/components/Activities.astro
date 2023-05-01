@@ -1,0 +1,18 @@
+---
+import { Github } from '../utils/github';
+import Section from './Section.astro';
+import ActivityTable from './ui/ActivityTable.astro';
+
+const github = new Github();
+
+const contibutions = await github.getAllContributions();
+---
+
+<Section title='Activities'>
+  <ActivityTable weeks={contibutions} />
+  <figure class='w-full max-w-2xl'>
+    <embed
+      src='https://wakatime.com/share/@suleymanbariseser/692e2991-ca4d-475b-a49f-4bf14a9eabf8.svg'
+    />
+  </figure>
+</Section>

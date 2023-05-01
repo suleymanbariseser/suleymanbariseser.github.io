@@ -16,6 +16,18 @@ export type Repo = {
   watchers_count: number;
 };
 
+export type ContributionDay = {
+  color: string;
+  contributionCount: number;
+  date: string;
+  weekday: number;
+};
+
+export type ContibutionWeek = {
+  contributionDays: ContributionDay[];
+  firstDay: string;
+};
+
 export class Github {
   #auth_token: string;
   #base_url: string;
@@ -49,5 +61,38 @@ export class Github {
           : 1;
       })
       .slice(0, 3);
+  };
+
+  getAllContributions = async () => {
+    const body = {
+      query: `query {
+          user(login: "${this.#username}") {
+            name
+            contributionsCollection {
+              contributionCalendar {
+                colors
+                totalContributions
+                weeks {
+                  contributionDays {
+                    color
+                    contributionCount
+                    date
+                    weekday
+                  }
+                  firstDay
+                }
+              }
+            }
+          }
+        }`,
+    };
+    const result = await fetch('https://api.github.com/graphql', {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: this.#headers,
+    }).then((res) => res.json());
+
+    return result.data.user.contributionsCollection.contributionCalendar
+      .weeks as ContibutionWeek[];
   };
 }

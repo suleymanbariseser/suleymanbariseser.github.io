@@ -6,7 +6,9 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<div class='w-full flex flex-col items-center py-14 gap-y-5 container mx-auto'>
+<section
+  class='w-full flex flex-col items-center py-14 gap-y-5 container mx-auto max-sm:px-4'
+>
   {title && <h1 class='text-2xl font-bold'>{title}</h1>}
   <slot />
-</div>
+</section>

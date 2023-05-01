@@ -1,0 +1,58 @@
+---
+import Tooltip from './Tooltip.astro';
+import type { ContibutionWeek } from '../../utils/github';
+
+interface Props {
+  weeks: ContibutionWeek[];
+}
+
+const { weeks } = Astro.props;
+
+const colors = [
+  'bg-green-800/30',
+  'bg-green-800/40',
+  'bg-green-800/60',
+  'bg-green-800/80',
+  'bg-green-800',
+];
+
+const getColor = (count: number) => {
+  if (count === 0) return 'bg-zinc-800/30';
+
+  if (count > colors.length) return colors[colors.length - 1];
+
+  return colors[count - 1];
+};
+---
+
+<div class='max-w-full flex flex-col gap-y-4 overflow-x-scroll'>
+  <div class='flex flex-row gap-x-1'>
+    {
+      weeks.map((week) => (
+        <div class='flex flex-col gap-y-1'>
+          {week.contributionDays.map((day) => {
+            return (
+              <Tooltip
+                tooltip={`${day.contributionCount} contibution(s) on ${new Date(
+                  day.date
+                ).toDateString()}`}
+              >
+                <div
+                  class:list={[
+                    'w-3 h-3 rounded-sm',
+                    getColor(day.contributionCount),
+                  ]}
+                />
+              </Tooltip>
+            );
+          })}
+        </div>
+      ))
+    }
+  </div>
+  <div class='w-full flex flex-row items-center justify-end gap-x-1'>
+    <span class='text-xs'>Less</span>
+    {colors.map((color) => <div class:list={['w-3 h-3 rounded-sm', color]} />)}
+    <span class='text-xs'>More</span>
+  </div>
+</div>
