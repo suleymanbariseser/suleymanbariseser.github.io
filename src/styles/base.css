@@ -36,9 +36,9 @@
 }
 
 .tooltip {
-  @apply invisible absolute;
+  @apply absolute hidden;
 }
 
 .has-tooltip:hover .tooltip {
-  @apply visible z-50;
+  @apply flex z-50;
 }
