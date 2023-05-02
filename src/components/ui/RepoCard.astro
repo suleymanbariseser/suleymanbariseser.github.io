@@ -8,11 +8,16 @@ interface Props {
 const { repo } = Astro.props;
 ---
 
-<a href={repo.html_url} target='_blank' rel='noopener noreferrer'>
+<a
+  href={repo.html_url}
+  target='_blank'
+  rel='noopener noreferrer'
+  aria-label={`open the ${repo.name} repository on GitHub`}
+>
   <div
     class='w-[250px] h-[250px] bg-zinc-900 border border-zinc-800 rounded-sm p-6 flex flex-col justify-center gap-y-2 hover:bg-zinc-800 transition-all'
   >
-    <h6 class='text-base text-zinc-100'>{repo.name}</h6>
+    <p class='font-bold text-zinc-100'>{repo.name}</p>
     <p class='text-xs overflow-ellipsis'>
       {repo.description ?? 'No description'}
     </p>

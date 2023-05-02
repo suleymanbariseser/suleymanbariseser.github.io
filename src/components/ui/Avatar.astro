@@ -1,11 +1,12 @@
 ---
 interface Props {
   src: string;
+  alt: string;
 }
 
-const { src } = Astro.props as Props;
+const { src, alt } = Astro.props as Props;
 ---
 
 <div class='w-40 h-40 overflow-hidden rounded-full'>
-  <img class='w-full h-full object-cover' src={src} />
+  <img class='w-full h-full object-cover' src={src} alt={alt} />
 </div>

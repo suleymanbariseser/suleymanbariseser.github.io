@@ -2,9 +2,14 @@
 import { Icon } from 'astro-icon';
 ---
 
-<header class='w-full py-4 border-b border-b-zinc-700 container mx-auto max-sm:px-2'>
+<header
+  class='w-full py-4 border-b border-b-zinc-700 container mx-auto max-sm:px-2'
+>
   <div class='w-full flex flex-row justify-between'>
-    <a href='mailto:suleymanbariseser@gmail.com'>
+    <a
+      href='mailto:suleymanbariseser@gmail.com'
+      aria-label='send an email to suleymanbariseser@gmail.com'
+    >
       <div class='flex flex-row items-center gap-x-3'>
         <Icon name='mdi:email-outline' width={24} />
         <span class='text-sm max-md:hidden'>suleymanbariseser@gmail.com</span>
@@ -15,6 +20,7 @@ import { Icon } from 'astro-icon';
         href='https://www.linkedin.com/in/suleymanbariseser/'
         target='_blank'
         rel='noopener noreferrer'
+        aria-label='open the linkedin profile'
       >
         Linkedin
       </a>
@@ -23,6 +29,7 @@ import { Icon } from 'astro-icon';
         href='https://github.com/suleymanbariseser'
         target='_blank'
         rel='noopener noreferrer'
+        aria-label='open the github profile'
       >
         Github
       </a>
@@ -31,6 +38,7 @@ import { Icon } from 'astro-icon';
         href='https://medium.com/@suleymanbariseser'
         target='_blank'
         rel='noopener noreferrer'
+        aria-label='open the medium profile'
       >
         Medium
       </a>
